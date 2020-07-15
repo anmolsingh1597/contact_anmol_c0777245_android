@@ -17,49 +17,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:text="@string/add_a_new_employee"
+            android:text="@string/add_new_contact"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <EditText
-            android:id="@+id/et_name"
+            android:id="@+id/firstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_employee_name" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingHorizontal="5dp"
-            android:text="@string/select_department" />
-
-        <Spinner
-            android:id="@+id/spinner_dept"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/departments" />
-
+            android:hint="@string/first_name" />
         <EditText
-            android:id="@+id/et_salary"
+            android:id="@+id/lastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="0123456789"
-            android:hint="@string/enter_employee_salary"
-            android:inputType="number" />
+            android:hint="@string/last_name" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"/>
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/contact_number"
+            android:inputType="phone"/>
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/address" />
+
 
         <Button
-            android:id="@+id/btn_add_employee"
+            android:id="@+id/addContactButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_employee" />
+            android:text="@string/add_contact" />
 
         <TextView
-            android:id="@+id/tv_view_employees"
+            android:id="@+id/contactListButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="@string/view_employees"
+            android:text="@string/contact_list"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold" />
