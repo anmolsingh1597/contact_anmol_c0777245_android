@@ -57,6 +57,7 @@ public class AddContactActivity extends AppCompatActivity implements View.OnClic
     private void showContactList() {
 
         startActivity(new Intent(this, ContactListActivity.class));
+        finish();
 
     }
 
@@ -111,5 +112,12 @@ public class AddContactActivity extends AppCompatActivity implements View.OnClic
         emailEditText.clearFocus();
         contactEditText.clearFocus();
         addressEditText.clearFocus();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AddContactActivity.this, ContactListActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -3,6 +3,7 @@ package com.lambton.contact_anmol_c0777245_android.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -34,7 +35,9 @@ public class ContactListActivity extends AppCompatActivity{
     List<ContactInfo> contactInfoList;
     ListView contactListView;
 
+SearchView searchView;
 
+ContactAdapter contactAdapter;
 
 
 
@@ -70,6 +73,29 @@ public class ContactListActivity extends AppCompatActivity{
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.contact_drawer, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.btnAdd){
+            Intent intent = new Intent(ContactListActivity.this, AddContactActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        if (item.getItemId() == R.id.btnSearch){
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    contactAdapter.getFilter().filter(newText);
+                    return false;
+                }
+            });
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
