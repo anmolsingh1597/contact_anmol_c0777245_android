@@ -55,11 +55,11 @@ public class ContactAdapter extends ArrayAdapter implements Filterable {
         TextView addressTV = v.findViewById(R.id.tv_address);
 
         final ContactInfo contactInfo = contactInfoList.get(position);
-        firstNameTV.setText(contactInfo.getFirstName());
-        lastNameTV.setText(contactInfo.getLastName());
-        emailTV.setText(contactInfo.getEmail());
-        contactTV.setText(contactInfo.getPhoneNumber());
-        addressTV.setText(contactInfo.getAddress());
+        firstNameTV.setText("First Name: " + contactInfo.getFirstName());
+        lastNameTV.setText("Last Name: " + contactInfo.getLastName());
+        emailTV.setText("Email: " + contactInfo.getEmail());
+        contactTV.setText("Contact: " + contactInfo.getPhoneNumber());
+        addressTV.setText("Address: " + contactInfo.getAddress());
 
         v.findViewById(R.id.btn_edit).setOnClickListener(new View.OnClickListener() {
             @Override
