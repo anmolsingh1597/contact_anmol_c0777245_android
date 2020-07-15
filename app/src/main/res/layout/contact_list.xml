@@ -18,28 +18,26 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:text="John"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:id="@+id/tv_lastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Smith"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            android:text="Smith" />
 
         <TextView
             android:id="@+id/tv_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="johnSmith@gmail.com"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            android:text="johnSmith@gmail.com"/>
 
         <TextView
             android:id="@+id/tv_contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="4446662121"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
 
         <TextView
             android:id="@+id/tv_address"

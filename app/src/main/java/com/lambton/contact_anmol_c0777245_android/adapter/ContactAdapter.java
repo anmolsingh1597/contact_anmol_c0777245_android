@@ -178,7 +178,7 @@ public class ContactAdapter extends ArrayAdapter implements Filterable {
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
                 for (ContactInfo item : contactInfoListFull) {
-                    if (item.getFirstName().toLowerCase().contains(filterPattern)) {
+                    if (item.getFirstName().toLowerCase().contains(filterPattern) || item.getLastName().toLowerCase().contains(filterPattern) || item.getPhoneNumber().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
                 }
