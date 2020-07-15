@@ -1,4 +1,4 @@
-package com.lambton.tovisit_anmol_c0777245_android.adapter;
+package com.lambton.contact_anmol_c0777245_android.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,9 +15,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactInfo;
+import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactRoomDb;
 import com.lambton.tovisit_anmol_c0777245_android.R;
-import com.lambton.tovisit_anmol_c0777245_android.roomDatabase.ContactInfo;
-import com.lambton.tovisit_anmol_c0777245_android.roomDatabase.ContactRoomDb;
 
 import java.util.List;
 

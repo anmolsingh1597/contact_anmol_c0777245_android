@@ -1,4 +1,4 @@
-package com.lambton.tovisit_anmol_c0777245_android.activities;
+package com.lambton.contact_anmol_c0777245_android.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactInfo;
+import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactRoomDb;
 import com.lambton.tovisit_anmol_c0777245_android.R;
-import com.lambton.tovisit_anmol_c0777245_android.roomDatabase.ContactInfo;
-import com.lambton.tovisit_anmol_c0777245_android.roomDatabase.ContactRoomDb;
 import com.google.android.material.snackbar.Snackbar;
 
 

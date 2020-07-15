@@ -1,4 +1,4 @@
-package com.lambton.tovisit_anmol_c0777245_android.roomDatabase;
+package com.lambton.contact_anmol_c0777245_android.roomDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

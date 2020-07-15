@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ContactListActivity">
+    tools:context="com.lambton.contact_anmol_c0777245_android.activities.ContactListActivity">
 
   <ListView
         android:id="@+id/contact_list_lv"

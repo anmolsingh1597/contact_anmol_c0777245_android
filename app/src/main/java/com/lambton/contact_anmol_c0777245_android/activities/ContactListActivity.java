@@ -1,15 +1,14 @@
-package com.lambton.tovisit_anmol_c0777245_android.activities;
+package com.lambton.contact_anmol_c0777245_android.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactRoomDb;
 import com.lambton.tovisit_anmol_c0777245_android.R;
-import com.lambton.tovisit_anmol_c0777245_android.adapter.ContactAdapter;
-import com.lambton.tovisit_anmol_c0777245_android.roomDatabase.ContactInfo;
-import com.lambton.tovisit_anmol_c0777245_android.roomDatabase.ContactRoomDb;
+import com.lambton.contact_anmol_c0777245_android.adapter.ContactAdapter;
+import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactInfo;
 
 import java.util.ArrayList;
 import java.util.List;
