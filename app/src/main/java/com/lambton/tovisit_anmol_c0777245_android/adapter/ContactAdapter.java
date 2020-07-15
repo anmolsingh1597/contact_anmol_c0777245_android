@@ -3,6 +3,7 @@ package com.lambton.tovisit_anmol_c0777245_android.adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ public class ContactAdapter extends ArrayAdapter {
 
     ContactRoomDb contactRoomDb;
 
-    public ContactAdapter(@NonNull Context context, int resource, List<ContactInfo> contactInfoList){
+    public ContactAdapter(@NonNull Context context, int resource, List<ContactInfo> contactInfoList) {
         super(context, resource, contactInfoList);
         this.contactInfoList = contactInfoList;
         this.context = context;
@@ -38,7 +39,7 @@ public class ContactAdapter extends ArrayAdapter {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         final LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(layoutRes, null);
         TextView firstNameTV = v.findViewById(R.id.tv_firstName);
@@ -56,7 +57,8 @@ public class ContactAdapter extends ArrayAdapter {
 
         v.findViewById(R.id.btn_edit).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { updateContact(contactInfo);
+            public void onClick(View v) {
+                updateContact(contactInfo);
             }
 
             private void updateContact(final ContactInfo contactInfo) {
@@ -88,17 +90,17 @@ public class ContactAdapter extends ArrayAdapter {
                         String contact = contactET.getText().toString().trim();
                         String address = addressET.getText().toString().trim();
 
-                        if(firstName.isEmpty()){
+                        if (firstName.isEmpty()) {
                             firstNameET.setError("First Name is required");
                             firstNameET.requestFocus();
                             return;
                         }
-                        if(email.isEmpty()){
+                        if (email.isEmpty()) {
                             emailET.setError("First Name is necessary");
                             emailET.requestFocus();
                             return;
                         }
-                        if(contact.isEmpty()){
+                        if (contact.isEmpty()) {
                             contactET.setError("First Name is necessary");
                             contactET.requestFocus();
                             return;
@@ -136,7 +138,7 @@ public class ContactAdapter extends ArrayAdapter {
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(context, "The Contact ("+ contactInfo.getFirstName() +") is not deleted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "The Contact (" + contactInfo.getFirstName() + ") is not deleted", Toast.LENGTH_SHORT).show();
                     }
                 });
                 AlertDialog alertDialog = builder.create();
@@ -144,7 +146,13 @@ public class ContactAdapter extends ArrayAdapter {
 
             }
         });
+        Log.d("ContactAdapter", "getView: " + getCount());
         return v;
+    }
+
+    @Override
+    public int getCount() {
+        return contactInfoList.size();
     }
 
     private void loadContacts() {
