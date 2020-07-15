@@ -27,7 +27,7 @@ public class ContactInfo {
         @ColumnInfo(name = "phoneNumber")
         private String phoneNumber;
 
-
+        @NonNull
         @ColumnInfo(name = "address")
         private String address;
 
@@ -42,6 +42,11 @@ public class ContactInfo {
     public int getId() {
         return id;
     }
+
+    /**
+     * setId() is mandatory
+     * @param id
+     */
 
     public void setId(int id) {
         this.id = id;
