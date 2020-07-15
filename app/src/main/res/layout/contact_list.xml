@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#273"
+            android:background="@drawable/btn_rounded_orange"
             android:text="Edit"
             android:textColor="#fff" />
 
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#833"
+            android:background="@drawable/btn_rounded_red"
             android:text="Delete"
             android:textColor="#fff" />
     </LinearLayout>

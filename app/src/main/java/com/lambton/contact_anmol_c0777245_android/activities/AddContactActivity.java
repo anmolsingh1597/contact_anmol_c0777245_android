@@ -50,7 +50,6 @@ public class AddContactActivity extends AppCompatActivity implements View.OnClic
                 break;
             case R.id.contactListButton:
                 showContactList();
-
                 break;
         }
     }
