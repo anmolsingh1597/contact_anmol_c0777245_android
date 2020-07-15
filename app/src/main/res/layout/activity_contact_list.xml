@@ -7,9 +7,11 @@
     android:layout_height="match_parent"
     tools:context="com.lambton.contact_anmol_c0777245_android.activities.ContactListActivity">
 
+
   <ListView
         android:id="@+id/contact_list_lv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+      android:layout_marginTop="45dp"/>
 
 </RelativeLayout>

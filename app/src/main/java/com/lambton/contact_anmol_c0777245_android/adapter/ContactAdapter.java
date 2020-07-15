@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,13 +21,15 @@ import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactInfo;
 import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactRoomDb;
 import com.lambton.tovisit_anmol_c0777245_android.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ContactAdapter extends ArrayAdapter {
+public class ContactAdapter extends ArrayAdapter implements Filterable {
 
     Context context;
     int layoutRes;
     List<ContactInfo> contactInfoList;
+    List<ContactInfo> contactInfoListFull;
 
     ContactRoomDb contactRoomDb;
 
@@ -35,6 +39,8 @@ public class ContactAdapter extends ArrayAdapter {
         this.context = context;
         this.layoutRes = resource;
         contactRoomDb = ContactRoomDb.getINSTANCE(context);
+
+        contactInfoListFull = new ArrayList<>(contactInfoList);
     }
 
     @NonNull
@@ -158,4 +164,34 @@ public class ContactAdapter extends ArrayAdapter {
         contactInfoList = contactRoomDb.contactDao().getAllContacts();
         notifyDataSetChanged();
     }
+
+
+    public Filter getFilter() {
+        return contactFilter;
+    }
+    private Filter contactFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<ContactInfo> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(contactInfoListFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (ContactInfo item : contactInfoListFull) {
+                    if (item.getFirstName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            contactInfoList.clear();
+            contactInfoList.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }

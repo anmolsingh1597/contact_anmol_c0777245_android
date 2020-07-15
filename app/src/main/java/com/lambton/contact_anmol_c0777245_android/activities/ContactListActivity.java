@@ -3,7 +3,7 @@ package com.lambton.contact_anmol_c0777245_android.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -15,11 +15,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 
 import com.google.android.material.navigation.NavigationView;
+import com.lambton.contact_anmol_c0777245_android.adapter.ContactListAdapter;
 import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactRoomDb;
 import com.lambton.tovisit_anmol_c0777245_android.R;
 import com.lambton.contact_anmol_c0777245_android.adapter.ContactAdapter;
@@ -34,8 +38,6 @@ public class ContactListActivity extends AppCompatActivity{
 
     List<ContactInfo> contactInfoList;
     ListView contactListView;
-
-SearchView searchView;
 
 ContactAdapter contactAdapter;
 
@@ -62,7 +64,7 @@ ContactAdapter contactAdapter;
     private void loadContact() {
         contactInfoList = contactRoomDb.contactDao().getAllContacts();
 
-        ContactAdapter contactAdapter = new ContactAdapter(this, R.layout.contact_list,contactInfoList);
+        contactAdapter = new ContactAdapter(this, R.layout.contact_list,contactInfoList);
         contactListView.setAdapter(contactAdapter);
 
     }
@@ -72,6 +74,22 @@ ContactAdapter contactAdapter;
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.contact_drawer, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.btnSearch);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+//        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                contactAdapter.getFilter().filter(newText);
+                Toast.makeText(ContactListActivity.this,newText, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
         return true;
     }
 
@@ -83,17 +101,7 @@ ContactAdapter contactAdapter;
             finish();
         }
         if (item.getItemId() == R.id.btnSearch){
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    return false;
-                }
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    contactAdapter.getFilter().filter(newText);
-                    return false;
-                }
-            });
+
         }
         return super.onOptionsItemSelected(item);
     }
