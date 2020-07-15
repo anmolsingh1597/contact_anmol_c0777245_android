@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactInfo;
 import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactRoomDb;
@@ -14,7 +13,7 @@ import com.lambton.tovisit_anmol_c0777245_android.R;
 import com.google.android.material.snackbar.Snackbar;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddContactActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ContactRoomDb contactRoomDb;
 
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_add_contact);
 
         initials();
     }
@@ -47,13 +46,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.addContactButton:
-                Toast.makeText(this, "TestADD", Toast.LENGTH_SHORT).show();
-
                 addContactToDatabase();
                 break;
             case R.id.contactListButton:
                 showContactList();
-                Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+
                 break;
         }
     }

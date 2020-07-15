@@ -146,7 +146,6 @@ public class ContactAdapter extends ArrayAdapter {
 
             }
         });
-        Log.d("ContactAdapter", "getView: " + getCount());
         return v;
     }
 

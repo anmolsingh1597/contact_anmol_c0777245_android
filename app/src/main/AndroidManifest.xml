@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.lambton.contact_anmol_c0777245_android.activities.ContactListActivity"></activity>
-        <activity android:name="com.lambton.contact_anmol_c0777245_android.activities.MainActivity">
+        <activity android:name="com.lambton.contact_anmol_c0777245_android.activities.AddContactActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
