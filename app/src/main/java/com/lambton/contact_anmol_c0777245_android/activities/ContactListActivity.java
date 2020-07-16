@@ -19,6 +19,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -36,6 +37,7 @@ public class ContactListActivity extends AppCompatActivity{
 
     private ContactRoomDb contactRoomDb;
 
+    TextView noOfContacts;
     List<ContactInfo> contactInfoList;
     ListView contactListView;
 
@@ -55,6 +57,7 @@ ContactAdapter contactAdapter;
 
     private void initials() {
         contactListView = findViewById(R.id.contact_list_lv);
+        noOfContacts = findViewById(R.id.tv_no_of_contacts);
 
         contactInfoList = new ArrayList<>();
         contactRoomDb = ContactRoomDb.getINSTANCE(this);
@@ -66,6 +69,7 @@ ContactAdapter contactAdapter;
 
         contactAdapter = new ContactAdapter(this, R.layout.contact_list,contactInfoList);
         contactListView.setAdapter(contactAdapter);
+        noOfContacts.setText("No of contacts: " + contactInfoList.size());
 
     }
 

@@ -7,10 +7,18 @@
     android:layout_height="match_parent"
     tools:context="com.lambton.contact_anmol_c0777245_android.activities.ContactListActivity">
 
+    <TextView
+        android:id="@+id/tv_no_of_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No of Contacts: 0"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-  <ListView
+    <ListView
         android:id="@+id/contact_list_lv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp" />
 
 </RelativeLayout>
