@@ -1,5 +1,6 @@
 package com.lambton.contact_anmol_c0777245_android.adapter;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.lambton.contact_anmol_c0777245_android.activities.ContactListActivity;
 import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactInfo;
 import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactRoomDb;
 import com.lambton.tovisit_anmol_c0777245_android.R;
@@ -30,7 +32,7 @@ public class ContactAdapter extends ArrayAdapter implements Filterable {
     int layoutRes;
     List<ContactInfo> contactInfoList;
     List<ContactInfo> contactInfoListFull;
-    TextView noOfContacts;
+
 
     ContactRoomDb contactRoomDb;
 
@@ -165,8 +167,12 @@ public class ContactAdapter extends ArrayAdapter implements Filterable {
     private void loadContacts() {
         contactInfoList = contactRoomDb.contactDao().getAllContacts();
         notifyDataSetChanged();
+        realTimeContactsNumber();
     }
 
+    private void realTimeContactsNumber(){
+        ContactListActivity.setNoOfContacts(contactInfoList.size());
+    }
 
     public Filter getFilter() {
         return contactFilter;
