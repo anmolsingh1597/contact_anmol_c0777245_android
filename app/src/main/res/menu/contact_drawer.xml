@@ -6,7 +6,7 @@
         android:id="@+id/btnSearch"
         android:icon="@drawable/search_contact"
         android:title="Search"
-        app:showAsAction="always|collapseActionView"
+        app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView"/>
     <item
         android:id="@+id/btnAdd"

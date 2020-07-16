@@ -30,6 +30,7 @@ public class ContactAdapter extends ArrayAdapter implements Filterable {
     int layoutRes;
     List<ContactInfo> contactInfoList;
     List<ContactInfo> contactInfoListFull;
+    TextView noOfContacts;
 
     ContactRoomDb contactRoomDb;
 
@@ -152,6 +153,7 @@ public class ContactAdapter extends ArrayAdapter implements Filterable {
 
             }
         });
+
         return v;
     }
 
