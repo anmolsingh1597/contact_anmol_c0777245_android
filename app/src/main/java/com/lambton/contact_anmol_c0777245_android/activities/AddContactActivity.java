@@ -2,9 +2,11 @@ package com.lambton.contact_anmol_c0777245_android.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactInfo;
@@ -87,6 +89,7 @@ public class AddContactActivity extends AppCompatActivity implements View.OnClic
         // insert into room db
         ContactInfo contactInfo = new ContactInfo(firstName,lastName,email,contact,address);
         contactRoomDb.contactDao().insertContact(contactInfo);
+        clearFields();
         Snackbar.make(findViewById(android.R.id.content),"Contact Inserted",Snackbar.LENGTH_LONG)
                 .setAction("CLOSE", new View.OnClickListener() {
                     @Override
@@ -119,5 +122,20 @@ public class AddContactActivity extends AppCompatActivity implements View.OnClic
         Intent intent = new Intent(AddContactActivity.this, ContactListActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void clearFields(){
+        firstNameEditText.setText("");
+        lastNameEditText.setText("");
+        emailEditText.setText("");
+        contactEditText.setText("");
+        addressEditText.setText("");
+        lastNameEditText.clearFocus();
+        emailEditText.clearFocus();
+        contactEditText.clearFocus();
+        addressEditText.clearFocus();
+        firstNameEditText.clearFocus();
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(firstNameEditText.getWindowToken(), 0);
     }
 }
