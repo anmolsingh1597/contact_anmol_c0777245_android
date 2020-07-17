@@ -147,7 +147,7 @@ public class ContactAdapter extends ArrayAdapter implements Filterable {
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(context, "The Contact (" + contactInfo.getFirstName() + ") is not deleted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Contact info of " + contactInfo.getFirstName() + " is still in database", Toast.LENGTH_SHORT).show();
                     }
                 });
                 AlertDialog alertDialog = builder.create();
