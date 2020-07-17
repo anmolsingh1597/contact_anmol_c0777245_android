@@ -14,6 +14,8 @@ import com.lambton.contact_anmol_c0777245_android.roomDatabase.ContactRoomDb;
 import com.lambton.tovisit_anmol_c0777245_android.R;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.regex.Pattern;
+
 
 public class AddContactActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -76,12 +78,17 @@ public class AddContactActivity extends AppCompatActivity implements View.OnClic
             return;
         }
         if(email.isEmpty()){
-            emailEditText.setError("First Name is necessary");
+            emailEditText.setError("Email is required");
+            emailEditText.requestFocus();
+            return;
+        }
+        if(!isValidEmailId(email)){
+            emailEditText.setError("Enter Valid email address");
             emailEditText.requestFocus();
             return;
         }
         if(contact.isEmpty()){
-            contactEditText.setError("First Name is necessary");
+            contactEditText.setError("Contact is required");
             contactEditText.requestFocus();
             return;
         }
@@ -137,5 +144,15 @@ public class AddContactActivity extends AppCompatActivity implements View.OnClic
         firstNameEditText.clearFocus();
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(firstNameEditText.getWindowToken(), 0);
+    }
+
+    private boolean isValidEmailId(String email){
+
+        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
     }
 }
