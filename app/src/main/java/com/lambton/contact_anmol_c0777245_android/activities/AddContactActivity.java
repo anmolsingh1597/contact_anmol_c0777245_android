@@ -92,6 +92,11 @@ public class AddContactActivity extends AppCompatActivity implements View.OnClic
             contactEditText.requestFocus();
             return;
         }
+        if(contact.length()!= 10){
+            contactEditText.setError("Invalid contact number");
+            contactEditText.requestFocus();
+            return;
+        }
 
         // insert into room db
         ContactInfo contactInfo = new ContactInfo(firstName,lastName,email,contact,address);
